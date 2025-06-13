@@ -23,6 +23,11 @@ DATABASES = {
     )
 }
 
+
+CELERY_BROKER_URL = os.environ.get('REDIS_URL')  # Add this variable in Render
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
 from pathlib import Path
 from datetime import timedelta
 
