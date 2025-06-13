@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import path
 from otp_verification import views
@@ -40,6 +41,8 @@ from otp_verification.views import (
 
 urlpatterns = [
     # Email OTP & Registration
+        path('', lambda request: JsonResponse({'message': '🎉 Django backend is working!'}), name='root'),
+
     path('email-request/', EmailRequest.as_view(), name='email-request'),
 
     path('register/', RegisterUser.as_view(), name='register'),
